@@ -1,3 +1,5 @@
+from utils.add import addExpense
+
 import argparse
 
 parser = argparse.ArgumentParser(
@@ -10,9 +12,11 @@ subparsers = parser.add_subparsers(dest='command')
 addParser = subparsers.add_parser('add', help='Add a new expense.')
 addParser.add_argument('--description', 
                        type=str, 
+                       required=True,
                        help='Description of the new expense.')
 addParser.add_argument('--amount', 
                        type=int, 
+                       required=True,
                        help='Amount of the new expense.')
 
 
@@ -34,7 +38,7 @@ args = parser.parse_args()
 
 match args.command:
     case 'add':
-        pass
+        addExpense(description=args.description, amount=args.amount)
     case 'list':
         pass
     case 'summary':
