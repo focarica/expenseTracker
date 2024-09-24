@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser(
 subparsers = parser.add_subparsers(dest='command')
 
 # commands
+ 
 addParser = subparsers.add_parser('add', help='Add a new expense.')
 addParser.add_argument('--description', 
                        type=str, 
@@ -38,7 +39,7 @@ args = parser.parse_args()
 
 match args.command:
     case 'add':
-        addExpense(description=args.description, amount=args.amount)
+        print(addExpense(description=args.description, amount=args.amount))
     case 'list':
         pass
     case 'summary':
