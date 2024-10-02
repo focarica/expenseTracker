@@ -1,6 +1,7 @@
 from utils.add import addExpense
 from utils.list import listExpenses
 from utils.summary import summaryExpenses
+from utils.delete import deleteExpense
 
 import argparse
 
@@ -38,6 +39,7 @@ summaryParser.add_argument('--month',
 deleteParser = subparsers.add_parser('delete', help='Delete a expense.')
 deleteParser.add_argument('--id',
                           type=int,
+                          required=True,
                           help='Id of expense to delete.')
 
 args = parser.parse_args()
@@ -50,4 +52,4 @@ match args.command:
     case 'summary':
         print(summaryExpenses(month=args.month))
     case 'delete':
-        pass
+        print(deleteExpense(id=args.id))
