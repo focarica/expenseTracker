@@ -1,5 +1,5 @@
 from utils.jsonFunctions import loadExpenses, writeExpense
-
+from datetime import datetime
     
 def addExpense(description: str, amount: int) -> str:
     if amount < 0:
@@ -9,7 +9,10 @@ def addExpense(description: str, amount: int) -> str:
     
     
     expenses = loadExpenses()
-    newExpense = {"id": -1, "description":description, "amount": amount}
+    newExpense = {"id": -1, 
+                  "date": datetime.now().strftime("%d-%m-%Y"),
+                  "description":description, 
+                  "amount": amount}
     
     if(len(expenses) == 0):
         newExpense["id"] = 1
