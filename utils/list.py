@@ -13,7 +13,7 @@ def __printList(expenses: list) -> None:
         print(listString)
 
 
-def listExpenses(month: int) -> None:
+def listExpenses(month: int | None) -> None:
     expenses = loadExpenses()
     
     print(f"ID\t\t DATE\t\t DESCRIPTION\t\t AMOUNT")    
