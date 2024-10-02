@@ -1,5 +1,6 @@
 from utils.add import addExpense
 from utils.list import listExpenses
+from utils.summary import summaryExpenses
 
 import argparse
 
@@ -47,6 +48,6 @@ match args.command:
     case 'list':
         listExpenses(month=args.month)
     case 'summary':
-        pass
+        print(summaryExpenses(month=args.month))
     case 'delete':
         pass
